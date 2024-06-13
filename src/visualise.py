@@ -47,7 +47,8 @@ def capture_visuals(vis_list, filename, timestamp):
 @time_check
 def rotate_pcd(pcd):
     pcd_test = copy.deepcopy(pcd)
-    R = pcd_test.get_rotation_matrix_from_xyz((np.pi / 1.5,0, 0))
+    R = pcd_test.get_rotation_matrix_from_axis_angle((np.pi/1.3 * -1, np.pi/18*10, np.pi/18*5))
+    # R = pcd_test.get_rotation_matrix_from_axis_angle((np.pi/18 * 8, np.pi/18*10, np.pi/18*5 * -1))
     pcd_test.rotate(R, center=pcd_test.get_center())
     pcd_test.paint_uniform_color((1, 0, 0))
     return pcd_test
